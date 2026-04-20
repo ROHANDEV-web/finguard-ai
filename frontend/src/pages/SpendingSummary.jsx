@@ -23,7 +23,7 @@ export default function SpendingSummary({ onContinue }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
-  const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`;
+  const API_URL = `${import.meta.env.VITE_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000')}/api`;
 
   useEffect(() => {
     const fetchSummary = async () => {

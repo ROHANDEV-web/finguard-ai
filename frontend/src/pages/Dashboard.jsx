@@ -28,7 +28,7 @@ export default function Dashboard() {
 
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
-  const API_URL = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api`;
+  const API_URL = `${import.meta.env.VITE_API_URL || (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000')}/api`;
 
   const categories = ['Food', 'Travel', 'Rent', 'Shopping', 'Other'];
   const COLORS = ['#8b5cf6', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'];
